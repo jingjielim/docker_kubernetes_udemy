@@ -3,9 +3,10 @@ FROM node:alpine
 
 # Add all files in our directory into the docker container
 WORKDIR /usr/app
-COPY ./ ./
+COPY ./package.json ./
 # install some dependencies
-RUN npm install
+RUN npm install 
+COPY ./ ./
 
 # Default command
 CMD ["npm", "start"]
