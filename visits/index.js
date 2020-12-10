@@ -9,7 +9,9 @@ const client = redis.createClient({
 client.set('visits', 0)
 
 app.get('/', (req, res) => {
+    // Force the server to crash on purpose. Remove the line below for server to work again
     process.exit(0)
+    // Unable to reach the code below now
     client.get('visits', (err, visits) => {
         res.send('Number of visits is ' + visits)
         client.set('visits', parseInt(visits) + 1)
